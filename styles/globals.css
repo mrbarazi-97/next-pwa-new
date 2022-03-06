@@ -1,16 +1,14 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+html {
+  background-color: #eeeeee;
+  font-family: IRANSansX;
 }
-
-a {
-  color: inherit;
-  text-decoration: none;
+@font-face {
+  font-family: IRANSansX;
+  src: url('./../public/assets/fonts/IRANSansX-Regular.woff2');
 }
-
 * {
   box-sizing: border-box;
 }
