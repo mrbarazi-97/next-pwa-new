@@ -6,6 +6,8 @@ import {
   RayExplainTwo,
   RayExplainOne,
   Trust,
+  AppLinks,
+  RaySocial,
 } from '../components';
 
 export default function Home() {
@@ -18,6 +20,8 @@ export default function Home() {
         <RayExplainOne />
         <Trust />
         <RayExplainTwo />
+        <AppLinks />
+        <RaySocial />
       </Layout>
     </div>
   );

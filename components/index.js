@@ -10,3 +10,7 @@ export * from './SwiperSlider';
 export * from './RayExplainOne';
 export * from './RayExplainTwo';
 export * from './Trust';
+export * from './AppLinks';
+export * from './RaySocial';
+export * from './AppsButton/Google';
+export * from './AppsButton/Bazar';

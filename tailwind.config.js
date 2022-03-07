@@ -10,6 +10,7 @@ module.exports = {
       lightGray: '#ffffff80',
       white: '#ffffff',
       yellow: '#f3ba2f',
+      bgBlue: '#7db5c8',
     },
     extend: {
       keyframes: {

@@ -5,8 +5,8 @@ export function Hero() {
   return (
     <div>
       <DarkBackground height={32.1}>
-        <div className="flex flex-row-reverse max-w-full">
-          <div dir="rtl" className=" text-white flex-1 mt-20 mr-40">
+        <div className="flex flex-row-reverse max-w-6xl mx-auto">
+          <div dir="rtl" className=" text-white flex-1 mt-20">
             <h2 className="mb-10 text-4xl font-bold">
               ورود به دنیای ارز دیجیتال
             </h2>

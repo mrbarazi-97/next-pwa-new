@@ -2,7 +2,7 @@ export function DarkBackground({ children, height }) {
   return (
     <div
       style={{ background: 'reapet top center', height: `${height}rem` }}
-      className="max-w-ful bg-darkBlue bg-[url('/assets/images/hero__background.png')]"
+      className="max-w-full bg-darkBlue bg-[url('/assets/images/hero__background.png')]"
     >
       <div
         style={{ background: 'reapet top center', height: `${height}rem` }}
