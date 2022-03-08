@@ -6,7 +6,7 @@ export function Hero() {
     <div>
       <DarkBackground height={32.1}>
         <div className="flex flex-row-reverse max-w-6xl mx-auto">
-          <div dir="rtl" className=" text-white flex-1 mt-20">
+          <div dir="rtl" className=" text-white w-1/2 mt-20">
             <h2 className="mb-10 text-4xl font-bold">
               ورود به دنیای ارز دیجیتال
             </h2>
@@ -27,8 +27,8 @@ export function Hero() {
               </button>
             </div>
           </div>
-          <div className="flex-1 flex pt-20">
-            <div className="absolute ml-80 pl-20 pt-10">
+          <div className="grid w-1/2 pt-20 mx-auto">
+            <div className="col-start-1 col-end-3">
               <Image
                 className=""
                 src="/assets/images/heroicons/hero__binance.svg"
@@ -37,31 +37,32 @@ export function Hero() {
                 height="100"
               />
             </div>
-            <div className="absolute ml-80 mt-60">
-              <Image
-                className="max-w-full"
-                src="/assets/images/heroicons/hero__ethereum.svg"
-                alt="hero__ethereum"
-                width="150"
-                height="150"
-              />
-            </div>
-            <div className="absolute ml-80 pl-80 mb-40 ">
+            <div className="col-start-7 col-end-7">
               <Image
                 className=""
                 src="/assets/images/heroicons/hero__polygon.svg"
                 alt="hero__polygon"
-                width="120"
-                height="120"
+                width="130"
+                height="130"
               />
             </div>
-            <div className="absolute mt-40 ml-80 pl-60">
+            <div className="col-start-1 col-end-3">
+              <Image
+                className="max-w-full"
+                src="/assets/images/heroicons/hero__ethereum.svg"
+                alt="hero__ethereum"
+                width="170"
+                height="170"
+              />
+            </div>
+
+            <div className="col-start-5 col-end-7">
               <Image
                 className=""
                 src="/assets/images/heroicons/hero__raybit.svg"
                 alt="hero__raybit"
-                width="180"
-                height="180"
+                width="190"
+                height="190"
               />
             </div>
           </div>
