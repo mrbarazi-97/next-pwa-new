@@ -14,4 +14,3 @@ export * from './AppLinks';
 export * from './RaySocial';
 export * from './AppsButton/Google';
 export * from './AppsButton/Bazar';
-export * from './Coins';
