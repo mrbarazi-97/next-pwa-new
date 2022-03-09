@@ -4,7 +4,7 @@ import { Bazar, Google } from '..';
 export function AppLinks() {
   return (
     <div className="h-80 bg-darkBlue max-w-full">
-      <div className="flex flex-row max-w-6xl mx-auto justify-evenly py-20">
+      <div className="flex flex-row max-w-6xl mx-auto justify-evenly pt-20 mb-80">
         <div>
           <Image
             src="/assets/images/logo/app-download__qr.svg"

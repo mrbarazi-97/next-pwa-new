@@ -9,7 +9,7 @@ export function SwiperSlider() {
       <Swiper
         className="flex flex-row items-center mt-8 max-w-6xl mx-auto"
         slidesPerView={3}
-        spaceBetween={8}
+        spaceBetween={60}
         // centeredSlides={true}
         pagination={{
           clickable: true,

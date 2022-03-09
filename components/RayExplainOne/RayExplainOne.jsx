@@ -3,7 +3,7 @@ import Image from 'next/image';
 export function RayExplainOne() {
   return (
     <div className="flex max-w-6xl items-center mx-auto my-10" dir="rtl">
-      <div className="flex flex-col w-2/4">
+      <div className="flex flex-col w-1/2  mx-auto">
         <h1 className="font-extrabold text-3xl pb-8">
           کامل ترین اپ معاملات ارز دیجیتال در ایران
         </h1>

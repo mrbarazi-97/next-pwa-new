@@ -9,6 +9,10 @@ html {
   font-family: IRANSansX;
   src: url('./../public/assets/fonts/IRANSansX-Regular.woff2');
 }
+@font-face {
+  font-family: IranYekan;
+  src: url('./../public/assets/fonts/iranyekanwebregular.woff');
+}
 * {
   box-sizing: border-box;
 }
