@@ -5,7 +5,7 @@ export function Hero() {
   return (
     <div>
       <DarkBackground height={32.1}>
-        <div className="flex flex-row-reverse max-w-6xl mx-auto">
+        <div className="relative flex flex-row-reverse max-w-6xl mx-auto">
           <div dir="rtl" className=" text-white w-1/2 mt-20">
             <h2 className="mb-10 text-4xl font-bold">
               ورود به دنیای ارز دیجیتال
