@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import Link from 'next/link';
 import Image from 'next/image';
@@ -13,12 +13,16 @@ import { io } from 'socket.io-client';
 
 import { CoinsTableHead, CoinsTableElement } from '..';
 
-import { photos } from '../../assets';
+import { photos } from '../../public/assets/assets';
+
+import Style from './styles/Coins.module.css';
 
 let footerHeight;
-window.addEventListener('DOMContentLoaded', () => {
-  footerHeight = document.querySelector('.footer').offsetHeight + 175;
-});
+const windowType = typeof window !== 'undefined';
+// windowType &&
+//   window.addEventListener('DOMContentLoaded', () => {
+//     footerHeight = document.querySelector('.footer').offsetHeight + 175;
+//   });
 const searchForName = (arr, cc, result = []) => {
   arr.map((x) => {
     if (x.faName && x.coin && x.enName) {
@@ -51,23 +55,24 @@ const topCoins = (data, list) => {
 };
 const ResultNotFound = () => {
   return (
-    <tr className="relative h-6">
-      <td className="absolute top-0.5 left-0.5 translate-x-0.5 translate-y-0">
-        یافت نشد
-      </td>
+    <tr className={Style.coins__not_found}>
+      <td className={Style.coins__not_found_text}>یافت نشد</td>
     </tr>
   );
 };
 const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const FakeTableData = () => {
   return array.map((index) => (
-    <tr className="relative h-6" key={index}>
-      <td className="pt-0.5 pr-0.5"></td>
-      <td className="pt-0.5 pr-0.5"></td>
-      <td className="pt-0.5 pr-0.5"></td>
-      <td className="pt-0.5 pr-0.5"></td>
-      <td className="pt-0.5 pr-0.5"></td>
-      <td className="pt-0.5 pr-0.5"></td>
+    <tr
+      className={`${Style.coins__table_body_item} ${Style.coins__table_body_item_loading}`}
+      key={index}
+    >
+      <td className={Style.coins__table_body_item_content}></td>
+      <td className={Style.coins__table_body_item_content}></td>
+      <td className={Style.coins__table_body_item_content}></td>
+      <td className={Style.coins__table_body_item_content}></td>
+      <td className={Style.coins__table_body_item_content}></td>
+      <td className={Style.coins__table_body_item_content}></td>
     </tr>
   ));
 };
@@ -95,16 +100,17 @@ export const Coins = ({ full }) => {
 
   ChartJs.register(LineElement, PointElement, CategoryScale, LinearScale);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     window.innerWidth >= 786 ? setWindowSize(true) : setWindowSize(false);
   }, []);
 
   useEffect(() => {
-    const socket = io.connect('https://ipa.raybit.net:30299', {
+    const socket = io.connect('https://api.raybit.net:3111', {
       path: '/api/v1/coindata/socket.io',
     });
 
     socket.on('COIN_DATA_SET', (data) => {
+      console.log(data); // TODO : It Will Remove
       data = data.sort(dynamicSort('-sellPrice'));
       sessionStorage.setItem('coins', JSON.stringify(data));
       setDataLength(data.length);
@@ -151,10 +157,11 @@ export const Coins = ({ full }) => {
         }
       }
       if (
+        windowType &&
         window.innerHeight +
           document.documentElement.scrollTop +
           footerHeight >=
-        document.scrollingElement.scrollHeight
+          document.scrollingElement.scrollHeight
       ) {
         setMoreLoading(false);
       }
@@ -172,8 +179,9 @@ export const Coins = ({ full }) => {
 
   useEffect(() => {
     if (
+      windowType &&
       window.innerHeight + document.documentElement.scrollTop + footerHeight >=
-      document.scrollingElement.scrollHeight
+        document.scrollingElement.scrollHeight
     ) {
       if (data) {
         if (data.length <= dataLength) {
@@ -208,8 +216,8 @@ export const Coins = ({ full }) => {
 
   return (
     <div
-      className={`relative mt-3 pt-0 pr-1/20 ${
-        full ? 'bg-darkBlue pt-3 pr-0 mr-0' : ''
+      className={`${Style.coins} ${
+        full ? Style.coins__full_page_background : ''
       }`}
       style={
         full
@@ -223,32 +231,46 @@ export const Coins = ({ full }) => {
     >
       {loading ? (
         <div
-          className={`relative w-4 h-4 mx-auto top-16 z-1  ${
-            full ? 'coins__loading_full' : ''
+          className={`${Style.coins__loading} ${
+            full ? Style.coins__loading_full : ''
           }`}
         >
-          <Image
-            width={100}
-            height={100}
-            className="coins__loading_logo"
-            src={photos.Logo}
-            alt=""
-            loading="lazy"
-          />
-          <div className="loadingio-spinner-ripple-jcfaojv52">
-            <div className="ldio-2qd0neygp3w">
+          <span className={Style.coins__loading_logo}>
+            <Image
+              width={200}
+              height={200}
+              src={photos.Logo}
+              alt=""
+              loading="lazy"
+            />
+          </span>
+
+          <div className={Style.loadingio_spinner_ripple_jcfaojv52}>
+            <div className={Style.ldio_2qd0neygp3w}>
               <div></div>
               <div></div>
             </div>
           </div>
         </div>
       ) : null}
-      <table className={`coins__table ${!full ? 'coins__table_more' : ''}`}>
-        <thead className="coins__table_head">
+      <table
+        className={`${Style.coins__table} ${
+          !full ? Style.coins__table_more : ''
+        }`}
+      >
+        <thead className={Style.coins__table_head}>
           <CoinsTableHead
-            name={window.screen.width <= 1025 ? 'ارز' : 'ارز دیجیتال'}
-            ttr={window.screen.width <= 1025 ? 'تتر' : 'قیمت به تتر'}
-            irr={window.screen.width <= 1025 ? 'تومان' : 'قیمت به تومان'}
+            name={
+              windowType && window.screen.width <= 1025 ? 'ارز' : 'ارز دیجیتال'
+            }
+            ttr={
+              windowType && window.screen.width <= 1025 ? 'تتر' : 'قیمت به تتر'
+            }
+            irr={
+              windowType && window.screen.width <= 1025
+                ? 'تومان'
+                : 'قیمت به تومان'
+            }
             search={search}
             setSearch={setSearch}
             full={full}
@@ -256,7 +278,7 @@ export const Coins = ({ full }) => {
             setSearchIcon={setSearchIcon}
           />
         </thead>
-        <tbody className="coins__table_body">
+        <tbody className={Style.coins__table_body}>
           {data ? (
             <CoinsTableElement data={data} style={loading} />
           ) : data === undefined ? (
@@ -267,30 +289,26 @@ export const Coins = ({ full }) => {
         </tbody>
       </table>
       {loading ? null : full ? null : (
-        <div className="coins__more">
+        <div className={Style.coins__more}>
           <span>
-            <Image
-              width={100}
-              height={100}
-              src={photos.TopCoinsMoreArrow}
-              alt=""
-              loading="lazy"
-            />
-            <Link href="/market" passHref>
-              بیشتر
+            <span>
+              <Image
+                width={60}
+                height={20}
+                src={photos.TopCoinsMoreArrow}
+                alt=""
+                loading="lazy"
+              />
+            </span>
+            <Link href="/market">
+              <a>بیشتر</a>
             </Link>
           </span>
         </div>
       )}
       {moreLoading && full && !search ? (
-        <div className="coins__more-loading">
-          <Image
-            width={100}
-            height={100}
-            src={photos.CoinsLoadMore}
-            alt=""
-            loading="lazy"
-          />
+        <div className={Style.coins__more_loading}>
+          <Image src={photos.CoinsLoadMore} alt="" loading="lazy" />
         </div>
       ) : null}
     </div>

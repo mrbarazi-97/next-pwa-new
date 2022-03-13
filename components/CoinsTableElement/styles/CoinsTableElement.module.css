@@ -1,0 +1,100 @@
+.coins__table_body_item {
+  height: 5rem;
+  position: relative;
+  border-bottom: 1px solid var(--blue);
+}
+
+.coins__table_body_item:last-child {
+  border: none;
+}
+
+.coins__table_body_item:last-child .top-coins__table_body_item_action {
+  border-bottom-left-radius: 16px;
+}
+
+.coins__table_body_item:last-child .top-coins__table_body_item_name {
+  border-bottom-right-radius: 16px;
+}
+
+.coins__table_body_item .coins__table_body_item_content {
+  text-align: center;
+  width: 16.66%;
+}
+
+.coins__table_body_item .coins__table_body_item_name .coins__table_body_item_name_image {
+  width: 20%;
+  display: inline-block;
+  margin-left: 1%;
+}
+
+.coins__table_body_item .coins__table_body_item_name .coins__table_body_item_name_image .coins__table_body_item_name_image-img {
+  width: 100%;
+}
+
+.coins__table_body_item .coins__table_body_item_name .coins__table_body_item_name_text {
+  width: 60%;
+  display: inline-block;
+  text-align: right;
+}
+
+.coins__table_body_item .coins__table_body_item_name .coins__table_body_item_name_text .coins__table_body_item_name_text_symbol {
+  padding: 0.5rem;
+}
+
+.coins__table_body_item .coins__table_body_item_change {
+  direction: ltr;
+}
+
+.coins__table_body_item .coins__table_body_item_change .coins__table_body_item_change_positive {
+  color: green;
+}
+
+.coins__table_body_item .coins__table_body_item_change .coins__table_body_item_change_negative {
+  color: red;
+}
+
+.coins__table_body_item .coins__table_body_item_chart canvas {
+  width: 40%;
+}
+
+.coins__table_body_item .coins__table_body_item_chart .coins__table_body_item_chart_img {
+  width: 100%;
+}
+
+.coins__table_body_item .coins__table_body_item_action .coins__table_body_item_action_btn {
+  background-color: var(--blue);
+  color: var(--white);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 16px;
+}
+
+@media only screen and (max-width: 768px) {
+  .coins__table_body_item {
+    height: 5rem;
+  }
+  .coins__table_body_item td {
+    width: 27%;
+    padding-right: 2%;
+  }
+  .coins__table_body_item_name_text {
+    padding: 0 0 0 1.5rem;
+  }
+  .coins__table_body_item_name_text_name {
+    width: 3rem;
+  }
+  .coins__table_body_item_name_image {
+    width: 30% !important;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .coins__table_body_item {
+    height: 5rem;
+  }
+  .coins__table_body_item td {
+    width: 27%;
+    padding-left: 2%;
+  }
+}
+/*# sourceMappingURL=CoinsTableElement.module.css.map */

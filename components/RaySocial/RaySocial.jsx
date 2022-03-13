@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+//import styles from './styles/RaySocial.module.css'
+//className={`max-w-6xl mx-auto my-10 ${styles.community}`}
 export function RaySocial() {
   return (
     <div className="max-w-6xl mx-auto my-10">
@@ -14,26 +16,11 @@ export function RaySocial() {
         </p>
       </div>
       <div className="text-white flex flex-row max-w-lg justify-between mx-auto py-10">
-        <button className="flex flex-row">
-          <Link href="#" passHref>
-            <div className="flex flex-row items-center justify-between rounded-full h-15 w-40 ">
-              <div className=" ">
-                <Image
-                  className="bg-mainBlue rounded-full"
-                  src="/assets/images/social/community__social_telegram.svg"
-                  width={50}
-                  height={50}
-                  alt="telegram logo"
-                />
-              </div>
-              <h1>@raybit</h1>
-            </div>
-          </Link>
-        </button>
-        <button>
-          <Link href="#" passHref>
-            <div className="flex flex-row items-center justify-between rounded-full h-15 w-40 ">
-              <div>
+        <Link href="/#" passHref>
+          <button>
+            <div className="bg-lightBlue flex flex-row items-center justify-evenly rounded-full h-15 w-40 ">
+              <div className="mt-1 fill-darkBlue">
+                <span className="bg-white absolute rounded-full w-10 h-10 mt-1 ml-1"></span>
                 <Image
                   src="/assets/images/social/community__social_twitter.svg"
                   width={50}
@@ -41,42 +28,61 @@ export function RaySocial() {
                   alt="twitter logo"
                 />
               </div>
-              <h1>@raybit</h1>
+              <h1>@raybit_official</h1>
             </div>
-          </Link>
-        </button>
+          </button>
+        </Link>
+
+        <Link href="/#" passHref>
+          <button>
+            <div className="bg-lightBlue flex flex-row items-center justify-evenly rounded-full h-15 w-40 ">
+              <div className="mt-1 fill-darkBlue">
+                <span className="bg-white absolute rounded-full w-10 h-10 mt-1 ml-1"></span>
+                <Image
+                  src="/assets/images/social/community__social_twitter.svg"
+                  width={50}
+                  height={50}
+                  alt="twitter logo"
+                />
+              </div>
+              <h1>@raybit_official</h1>
+            </div>
+          </button>
+        </Link>
       </div>
-      <div className="flex flex-row items-center justify-between max-w-xs mx-auto">
-        <button>
-          <Link href="#" passHref>
+      <div className="opacity-50  flex flex-row items-center justify-between max-w-xs mx-auto">
+        <Link href="#" passHref>
+          <button>
             <Image
               src="/assets/images/social/community__social_facebook.svg"
               width={50}
               height={50}
               alt="facebook logo"
             />
-          </Link>
-        </button>
-        <button>
-          <Link href="#" passHref>
+          </button>
+        </Link>
+
+        <Link href="#" passHref>
+          <button>
             <Image
               src="/assets/images/social/community__social_instagram.svg"
               width={50}
               height={50}
               alt="instagram logo"
             />
-          </Link>
-        </button>
-        <button>
-          <Link href="#" passHref>
+          </button>
+        </Link>
+
+        <Link href="/#" passHref>
+          <button>
             <Image
               src="/assets/images/social/community__social_reddit.svg"
               width={50}
               height={50}
               alt="reddit logo"
             />
-          </Link>
-        </button>
+          </button>
+        </Link>
       </div>
     </div>
   );

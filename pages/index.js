@@ -8,6 +8,7 @@ import {
   Trust,
   AppLinks,
   RaySocial,
+  Coins,
 } from '../components';
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
         <Hero />
         <OptionDescription />
         <SwiperSlider />
+        <Coins />
         <RayExplainOne />
         <Trust />
         <RayExplainTwo />
