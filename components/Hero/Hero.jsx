@@ -3,15 +3,15 @@ import { DarkBackground } from '..';
 
 export function Hero() {
   return (
-    <div>
-      <DarkBackground height={32.1}>
-        <div className="relative flex flex-row-reverse max-w-6xl mx-auto">
-          <div dir="rtl" className=" text-white w-1/2 mt-20">
-            <h2 className="mb-10 text-4xl font-bold">
+    <>
+      <DarkBackground>
+        <div className="flex flex-col mx-auto items-center px-3">
+          <div dir="rtl" className=" text-white mx-auto pt-12">
+            <h2 className="mb-10 text-3xl font-bold">
               ورود به دنیای ارز دیجیتال
             </h2>
-            <div className="block  ">
-              <p className="text-lg py-2 font-medium">
+            <div className="block">
+              <p className="lg:text-lg text-xl font-medium">
                 کامل ترین اپلیکیشن مبادلات ارز دیجیتال در ایران
               </p>
               <p className="text-md py-2 font-normal">
@@ -23,51 +23,51 @@ export function Hero() {
                 همین الان شروع کنید!
               </h2>
               <button className="bg-mainBlue rounded-2xl py-3 px-8 mr-8 text-white text-2xl">
-                دانلود رای بیت{' '}
+                دانلود رای بیت
               </button>
             </div>
           </div>
-          <div className="grid w-1/2 pt-20 mx-auto">
-            <div className="col-start-1 col-end-3">
+          <div className="flex flex-row ">
+            <div className="">
               <Image
                 className=""
                 src="/assets/images/heroicons/hero__binance.svg"
                 alt="hero__binance"
-                width="100"
-                height="100"
+                width={60}
+                height={60}
               />
             </div>
-            <div className="col-start-7 col-end-7">
+            <div className="">
               <Image
                 className=""
                 src="/assets/images/heroicons/hero__polygon.svg"
                 alt="hero__polygon"
-                width="130"
-                height="130"
+                width={100}
+                height={100}
               />
             </div>
-            <div className="col-start-1 col-end-3">
+            <div className=" hidden">
               <Image
-                className="max-w-full"
+                className=""
                 src="/assets/images/heroicons/hero__ethereum.svg"
                 alt="hero__ethereum"
-                width="170"
-                height="170"
+                width={170}
+                height={170}
               />
             </div>
 
-            <div className="col-start-5 col-end-7">
+            <div className=" hidden">
               <Image
                 className=""
                 src="/assets/images/heroicons/hero__raybit.svg"
                 alt="hero__raybit"
-                width="190"
-                height="190"
+                width={190}
+                height={190}
               />
             </div>
           </div>
         </div>
       </DarkBackground>
-    </div>
+    </>
   );
 }

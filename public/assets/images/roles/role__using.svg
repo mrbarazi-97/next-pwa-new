@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+  <g id="system-update" transform="translate(0.001)">
+    <path id="Path_7533" data-name="Path 7533" d="M17.137,30H12.862l-1.72-3.633-1.451-.6L5.9,27.118,2.881,24.095l1.353-3.785-.6-1.451L0,17.137V12.862l3.633-1.72.6-1.451L2.881,5.905,5.9,2.882,9.692,4.236l1.448-.6L12.862,0h4.275l1.721,3.636,1.448.6,3.788-1.354,3.024,3.024L25.765,9.691l.6,1.451L30,12.862v4.275l-3.633,1.72-.6,1.451,1.353,3.785-3.024,3.024-3.785-1.353-1.451.6Zm0,0" transform="translate(0 0)" fill="#ffcb5a"/>
+    <path id="Path_7534" data-name="Path 7534" d="M136.319,103.367h-7.3V96.619h-3.807l7.456-9.193,7.456,9.193h-3.807Zm0,0" transform="translate(-117.671 -82.458)" fill="#fff"/>
+    <g id="Group_885" data-name="Group 885" transform="translate(11.144 22.457)">
+      <path id="Path_7535" data-name="Path 7535" d="M288,384h1.928v1.928H288Zm0,0" transform="translate(-282.216 -384)" fill="#fba61f"/>
+      <path id="Path_7536" data-name="Path 7536" d="M192,384h1.928v1.928H192Zm0,0" transform="translate(-192 -384)" fill="#fba61f"/>
+    </g>
+  </g>
+</svg>

@@ -12,6 +12,8 @@ module.exports = {
       white: '#ffffff',
       yellow: '#f3ba2f',
       bgBlue: '#7db5c8',
+      bgTable: '#31286c',
+      trueBlue: '#0d0156',
     },
     extend: {
       keyframes: {

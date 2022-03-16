@@ -1,86 +1,149 @@
-import { Fragment } from 'react';
-import { Disclosure } from '@headlessui/react';
-import { MenuIcon, XIcon } from '@heroicons/react/outline';
+import { useState } from 'react';
 
-import Image from 'next/image';
 import Link from 'next/link';
+import Image from 'next/image';
 
-const navigation = [
-  { name: 'بازار', href: '#', current: false },
-  { name: 'قوانین', href: '#', current: false },
-  { name: 'کارمزد ها', href: '#', current: false },
-  { name: 'سطوح کاربری', href: '#', current: false },
-  { name: 'مجله', href: '#', current: false },
-  { name: 'درباره ما', href: '#', current: false },
-  { name: 'تماس با ما', href: '#', current: false },
-  { name: 'دانلود', href: '#', current: false },
-];
+import { photos } from '../../public/assets/assets/images';
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ');
-}
+import Style from './styles/Header.module.css';
 
-export function Header() {
+export const Header = () => {
+  const [background, setBackground] = useState('');
+  const [menu, setMenu] = useState('');
+  const [menu_top, setMenu_top] = useState('');
+  const [menu_bottom, setMenu_bottom] = useState('');
+  const [menu_top_back, setMenu_top_back] = useState('');
+  const [menu_bottom_back, setMenu_bottom_back] = useState('');
+  const [fixed, setFixed] = useState('');
+  const [fixedLeft, setFixedLeft] = useState('');
+  const [bottom, setBottom] = useState('');
+  const [marginTop, setMarginTop] = useState('');
+  const handleClick = () => {
+    if (window.innerWidth >= 1025) return false;
+    if (menu.length >= 1) {
+      setMenu_top_back(`${Style.header__container_menu_icon_top_back}`);
+      setMenu_bottom_back(`${Style.header__container_menu_icon_bottom_back}`);
+      setMenu('');
+      setBackground('');
+      setMenu_top('');
+      setMenu_bottom('');
+      setFixed('');
+      setFixedLeft('');
+      setBottom('');
+      setMarginTop('');
+    } else {
+      setMenu_top_back('');
+      setMenu_bottom_back('');
+      setMenu(`${Style.header__container_menu_active}`);
+      setBackground(`${Style.header__menu_background_active}`);
+      setMenu_top(`${Style.header__container_menu_icon_top_active}`);
+      setMenu_bottom(`${Style.header__container_menu_icon_bottom_active}`);
+      setFixed('fixed');
+      setFixedLeft('1rem');
+      setBottom('3.3rem');
+      setMarginTop('0.03rem');
+    }
+  };
   return (
-    <Disclosure as="nav" className="bg-darkBlue text-lightGray">
-      {({ open }) => (
-        <>
-          <div dir="rtl" className="lg:max-w-6xl mx-auto px-2 sm:px-6">
-            <div className="relative flex items-center justify-between h-16">
-              <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                {/* Mobile menu button*/}
-                <Disclosure.Button className=" inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-                  {open ? (
-                    <XIcon className="block h-6 w-6" aria-hidden="true" />
-                  ) : (
-                    <MenuIcon className="block h-6 w-6" aria-hidden="true" />
-                  )}
-                </Disclosure.Button>
-              </div>
-              <div className="flex-1 flex items-center justify-between sm:items-stretch sm:justify-start">
-                <div className="flex-shrink-0 flex items-center">
-                  <Image
-                    src="/assets/images/logo/raybit-logo.svg"
-                    height={40}
-                    width={40}
-                    alt="raybit-main-logo"
-                  />
-                  <h2 className="px-3 text-2xl font-extrabold">رای بیت</h2>
-                </div>
-                <div className="hidden sm:block sm:ml-6">
-                  <div className="flex space-x-4">
-                    {navigation.map((item) => (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        className={'px-3 py-2 text-lg font-medium'}
-                      >
-                        <a>{item.name}</a>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <Disclosure.Panel className="sm:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              {navigation.map((item) => (
-                <Disclosure.Button
-                  key={item.name}
-                  as="a"
-                  href={item.href}
-                  className={
-                    'block px-3 py-2  text-lg font-medium items-center'
-                  }
-                >
-                  {item.name}
-                </Disclosure.Button>
-              ))}
-            </div>
-          </Disclosure.Panel>
-        </>
-      )}
-    </Disclosure>
+    <div className={Style.header} style={{ paddingBottom: bottom }}>
+      <div className={Style.header__container}>
+        <div
+          className={Style.header__container_menu_icon}
+          style={{ position: fixed, left: fixedLeft }}
+          onClick={handleClick}
+        >
+          <span
+            className={`${Style.header__container_menu_icon_top} ${
+              menu_top.length >= 1 ? menu_top : ''
+            } ${menu_top_back.length >= 1 ? menu_top_back : ''}`}
+          ></span>
+          <span
+            className={`${Style.header__container_menu_icon_bottom} ${
+              menu_bottom.length >= 1 ? menu_bottom : ''
+            } ${menu_bottom_back.length >= 1 ? menu_bottom_back : ''}`}
+          ></span>
+        </div>
+        <ul className={`${Style.header__container_menu} ${Style.menu}`}>
+          <li className={Style.header__container_menu_li} onClick={handleClick}>
+            <Link href="/login" passHref>
+              ورود
+            </Link>
+          </li>
+          <li className={Style.header__container_menu_li} onClick={handleClick}>
+            <Link href="/register" passHref>
+              ثبت نام
+            </Link>
+          </li>
+          <li className={Style.header__container_menu_li} onClick={handleClick}>
+            <Link href="/#" passHref>
+              دانلود
+            </Link>
+          </li>
+          <li className={Style.header__container_menu_li} onClick={handleClick}>
+            <Link href="/contact" passHref>
+              تماس با ما
+            </Link>
+          </li>
+          <li className={Style.header__container_menu_li} onClick={handleClick}>
+            <Link href="/about" passHref>
+              درباره ما
+            </Link>
+          </li>
+          <li className={Style.header__container_menu_li} onClick={handleClick}>
+            <Link href="/#" passHref>
+              مجله
+            </Link>
+          </li>
+          <li className={Style.header__container_menu_li} onClick={handleClick}>
+            <Link href="/userlevel" passHref>
+              سطوح کاربری
+            </Link>
+          </li>
+          <li className={Style.header__container_menu_li} onClick={handleClick}>
+            <Link href="/wages" passHref>
+              کارمزد ها
+            </Link>
+          </li>
+          <li className={Style.header__container_menu_li} onClick={handleClick}>
+            <Link href="/roles" passHref>
+              قوانین
+            </Link>
+          </li>
+          <li className={Style.header__container_menu_li} onClick={handleClick}>
+            <Link href="/market" passHref>
+              بازار
+            </Link>
+          </li>
+        </ul>
+        <div
+          className={Style.header__container_logo}
+          style={{ position: fixed, top: '0.85rem' }}
+        >
+          <h1
+            className={Style.header__container_logo_h1}
+            style={{ marginTop: marginTop }}
+          >
+            <Link href="/" passHref>
+              رای بیت
+            </Link>
+          </h1>
+          <Link href="/" style={{ marginTop: marginTop }} passHref>
+            <Image
+              width={100}
+              height={100}
+              className={Style.header__container_logo_img}
+              src={photos.Logo}
+              alt=""
+              loading="lazy"
+            />
+          </Link>
+        </div>
+      </div>
+      <div
+        className={`${Style.header__menu_background} ${
+          background.length >= 1 ? background : ''
+        }`}
+      ></div>
+    </div>
   );
-}
+};
