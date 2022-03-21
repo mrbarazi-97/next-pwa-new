@@ -1,149 +1,271 @@
-import { useState } from 'react';
-
+import React, { useState } from 'react';
+import { Transition } from '@headlessui/react';
 import Link from 'next/link';
-import Image from 'next/image';
+import { Logo } from '..';
 
-import { photos } from '../../public/assets/assets/images';
-
-import Style from './styles/Header.module.css';
-
-export const Header = () => {
-  const [background, setBackground] = useState('');
-  const [menu, setMenu] = useState('');
-  const [menu_top, setMenu_top] = useState('');
-  const [menu_bottom, setMenu_bottom] = useState('');
-  const [menu_top_back, setMenu_top_back] = useState('');
-  const [menu_bottom_back, setMenu_bottom_back] = useState('');
-  const [fixed, setFixed] = useState('');
-  const [fixedLeft, setFixedLeft] = useState('');
-  const [bottom, setBottom] = useState('');
-  const [marginTop, setMarginTop] = useState('');
-  const handleClick = () => {
-    if (window.innerWidth >= 1025) return false;
-    if (menu.length >= 1) {
-      setMenu_top_back(`${Style.header__container_menu_icon_top_back}`);
-      setMenu_bottom_back(`${Style.header__container_menu_icon_bottom_back}`);
-      setMenu('');
-      setBackground('');
-      setMenu_top('');
-      setMenu_bottom('');
-      setFixed('');
-      setFixedLeft('');
-      setBottom('');
-      setMarginTop('');
-    } else {
-      setMenu_top_back('');
-      setMenu_bottom_back('');
-      setMenu(`${Style.header__container_menu_active}`);
-      setBackground(`${Style.header__menu_background_active}`);
-      setMenu_top(`${Style.header__container_menu_icon_top_active}`);
-      setMenu_bottom(`${Style.header__container_menu_icon_bottom_active}`);
-      setFixed('fixed');
-      setFixedLeft('1rem');
-      setBottom('3.3rem');
-      setMarginTop('0.03rem');
-    }
-  };
+export function Header() {
+  const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className={Style.header} style={{ paddingBottom: bottom }}>
-      <div className={Style.header__container}>
-        <div
-          className={Style.header__container_menu_icon}
-          style={{ position: fixed, left: fixedLeft }}
-          onClick={handleClick}
-        >
-          <span
-            className={`${Style.header__container_menu_icon_top} ${
-              menu_top.length >= 1 ? menu_top : ''
-            } ${menu_top_back.length >= 1 ? menu_top_back : ''}`}
-          ></span>
-          <span
-            className={`${Style.header__container_menu_icon_bottom} ${
-              menu_bottom.length >= 1 ? menu_bottom : ''
-            } ${menu_bottom_back.length >= 1 ? menu_bottom_back : ''}`}
-          ></span>
+    <div dir="rtl">
+      <nav className="bg-darkBlue max-w-full">
+        <div className="mx-auto max-w-6xl ">
+          <div className="flex items-center h-15">
+            <div className="flex items-center  text-lightGray">
+              <div className="flex justify-center items-center p-5">
+                <Link href="/" passHref>
+                  <h1 className=" font-bold text-xl cursor-pointer flex flex-row items-center text-center ">
+                    <Logo height={35} width={35} />
+                    <span className="px-2 text-2xl font-bold"> رای بیت</span>
+                  </h1>
+                </Link>
+              </div>
+              <div className="hidden  md:block">
+                <div className="flex items-baseline space-x-6 text-lightGray ">
+                  <div className="cursor-pointer font-medium px-5 py-2 text-sm">
+                    <Link
+                      activeClass="market"
+                      href="/market"
+                      smooth={true}
+                      offset={50}
+                      duration={500}
+                    >
+                      <a>بازار</a>
+                    </Link>
+                  </div>
+                  <div className="cursor-pointer font-medium px-1 py-2 text-sm">
+                    <Link
+                      activeClass="roles"
+                      href="/roles"
+                      smooth={true}
+                      offset={50}
+                      duration={500}
+                    >
+                      <a>قوانین</a>
+                    </Link>
+                  </div>
+                  <div className="cursor-pointer font-medium px-1 py-2 text-sm">
+                    <Link
+                      activeClass="wages"
+                      href="/wages"
+                      smooth={true}
+                      offset={50}
+                      duration={500}
+                    >
+                      <a>کارمزد ها</a>
+                    </Link>
+                  </div>
+                  <div className="cursor-pointer font-medium px-1 py-2 text-sm">
+                    <Link
+                      activeClass="userlevel"
+                      href="/userlevel"
+                      smooth={true}
+                      offset={50}
+                      duration={500}
+                    >
+                      <a> سطوح کاربری</a>
+                    </Link>
+                  </div>
+                  <div className="cursor-pointer font-medium px-1 py-2 text-sm">
+                    <Link
+                      activeClass="mags"
+                      href="/userlevel"
+                      smooth={true}
+                      offset={50}
+                      duration={500}
+                    >
+                      <a>مجله</a>
+                    </Link>
+                  </div>
+                  <div className="cursor-pointer font-medium px-1 py-2 text-sm">
+                    <Link
+                      activeClass="about"
+                      href="/about"
+                      smooth={true}
+                      offset={50}
+                      duration={500}
+                    >
+                      <a>درباره ما</a>
+                    </Link>
+                  </div>
+                  <div className="cursor-pointer font-medium px-1 py-2 text-sm">
+                    <Link
+                      activeClass="about"
+                      href="/about"
+                      smooth={true}
+                      offset={50}
+                      duration={500}
+                    >
+                      <a>تماس ما</a>
+                    </Link>
+                  </div>
+                  <div className="cursor-pointer font-medium px-1 py-2 text-sm">
+                    <Link
+                      activeClass="download"
+                      href="/download"
+                      smooth={true}
+                      offset={50}
+                      duration={500}
+                    >
+                      <a>دانلود</a>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="flex md:hidden mr-auto ">
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                type="button"
+                className="inline-flex pl-2 pb-5 text-mainBlue"
+                aria-controls="mobile-menu"
+                aria-expanded="false"
+              >
+                {!isOpen ? (
+                  <svg
+                    className="block h-10 w-14"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 10"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="1.5"
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
+                  </svg>
+                ) : (
+                  <svg
+                    className="block h-10 w-14 pt-1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                )}
+              </button>
+            </div>
+          </div>
         </div>
-        <ul className={`${Style.header__container_menu} ${Style.menu}`}>
-          <li className={Style.header__container_menu_li} onClick={handleClick}>
-            <Link href="/login" passHref>
-              ورود
-            </Link>
-          </li>
-          <li className={Style.header__container_menu_li} onClick={handleClick}>
-            <Link href="/register" passHref>
-              ثبت نام
-            </Link>
-          </li>
-          <li className={Style.header__container_menu_li} onClick={handleClick}>
-            <Link href="/#" passHref>
-              دانلود
-            </Link>
-          </li>
-          <li className={Style.header__container_menu_li} onClick={handleClick}>
-            <Link href="/contact" passHref>
-              تماس با ما
-            </Link>
-          </li>
-          <li className={Style.header__container_menu_li} onClick={handleClick}>
-            <Link href="/about" passHref>
-              درباره ما
-            </Link>
-          </li>
-          <li className={Style.header__container_menu_li} onClick={handleClick}>
-            <Link href="/#" passHref>
-              مجله
-            </Link>
-          </li>
-          <li className={Style.header__container_menu_li} onClick={handleClick}>
-            <Link href="/userlevel" passHref>
-              سطوح کاربری
-            </Link>
-          </li>
-          <li className={Style.header__container_menu_li} onClick={handleClick}>
-            <Link href="/wages" passHref>
-              کارمزد ها
-            </Link>
-          </li>
-          <li className={Style.header__container_menu_li} onClick={handleClick}>
-            <Link href="/roles" passHref>
-              قوانین
-            </Link>
-          </li>
-          <li className={Style.header__container_menu_li} onClick={handleClick}>
-            <Link href="/market" passHref>
-              بازار
-            </Link>
-          </li>
-        </ul>
-        <div
-          className={Style.header__container_logo}
-          style={{ position: fixed, top: '0.85rem' }}
+
+        <Transition
+          show={isOpen}
+          enter="transition ease-out duration-100 transform"
+          enterFrom="opacity-0 scale-95"
+          enterTo="opacity-100 scale-100 "
+          leave="transition ease-in duration-75 transform"
+          leaveFrom="opacity-100 scale-100"
+          leaveTo="opacity-0 scale-95"
         >
-          <h1
-            className={Style.header__container_logo_h1}
-            style={{ marginTop: marginTop }}
-          >
-            <Link href="/" passHref>
-              رای بیت
-            </Link>
-          </h1>
-          <Link href="/" style={{ marginTop: marginTop }} passHref>
-            <Image
-              width={100}
-              height={100}
-              className={Style.header__container_logo_img}
-              src={photos.Logo}
-              alt=""
-              loading="lazy"
-            />
-          </Link>
-        </div>
-      </div>
-      <div
-        className={`${Style.header__menu_background} ${
-          background.length >= 1 ? background : ''
-        }`}
-      ></div>
+          {(ref) => (
+            <div className="md:hidden " id="mobile-menu">
+              <div
+                ref={ref}
+                className="bg-darkBlue w-full absolute p-3 space-y-3  text-center items-center h-full flex flex-col text-lightGray"
+              >
+                <div className="cursor-pointer p-1 rounded-md text-2xl">
+                  <Link
+                    href="/market"
+                    activeClass="market"
+                    smooth={true}
+                    offset={50}
+                    duration={500}
+                  >
+                    <a>بازار</a>
+                  </Link>
+                </div>
+                <div className="cursor-pointer p-1 rounded-md text-2xl">
+                  <Link
+                    href="/roles"
+                    activeClass="roles"
+                    smooth={true}
+                    offset={50}
+                    duration={500}
+                  >
+                    <a>قوانین</a>
+                  </Link>
+                </div>
+                <div className="cursor-pointer p-1 rounded-md text-2xl">
+                  <Link
+                    href="/wages"
+                    activeClass="wages"
+                    smooth={true}
+                    offset={50}
+                    duration={500}
+                  >
+                    <a> کارمزد ها</a>
+                  </Link>
+                </div>
+                <div className="cursor-pointer p-1 rounded-md text-2xl">
+                  <Link
+                    href="/userlevel"
+                    activeClass="userlevel"
+                    smooth={true}
+                    offset={50}
+                    duration={500}
+                  >
+                    <a>سطوح کاربری</a>
+                  </Link>
+                </div>
+                <div className="cursor-pointer p-1 rounded-md text-2xl">
+                  <Link
+                    href="/mags"
+                    activeClass="mags"
+                    smooth={true}
+                    offset={50}
+                    duration={500}
+                  >
+                    <a> مجله</a>
+                  </Link>
+                </div>
+                <div className="cursor-pointer p-1 rounded-md text-2xl">
+                  <Link
+                    href="/about"
+                    activeClass="about"
+                    smooth={true}
+                    offset={50}
+                    duration={500}
+                  >
+                    <a> درباره ما</a>
+                  </Link>
+                </div>
+                <div className="cursor-pointer p-1 rounded-md text-2xl">
+                  <Link
+                    href="/contact"
+                    activeClass="contact"
+                    smooth={true}
+                    offset={50}
+                    duration={500}
+                  >
+                    <a> تماس با ما</a>
+                  </Link>
+                </div>
+                <div className="cursor-pointer p-1 rounded-md text-2xl">
+                  <Link
+                    href="/download"
+                    activeClass="download"
+                    smooth={true}
+                    offset={50}
+                    duration={500}
+                  >
+                    <a>دانلود</a>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          )}
+        </Transition>
+      </nav>
     </div>
   );
-};
+}

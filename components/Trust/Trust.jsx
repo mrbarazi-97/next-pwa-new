@@ -1,7 +1,7 @@
 import Image from 'next/image';
-export function Trust() {
+export function Trust({ background }) {
   return (
-    <div className="bg-darkBlue">
+    <div className={`${background}`}>
       <div className="flex flex-col mx-auto px-5">
         <h1 className="text-2xl text-mainBlue pt-5 pb-10 font-semibold text-center">
           چرا ما قابل اعتماد هستیم

@@ -5,8 +5,8 @@ export function Hero() {
   return (
     <>
       <DarkBackground>
-        <div className="flex flex-col mx-auto items-center px-3">
-          <div dir="rtl" className=" text-white mx-auto pt-12">
+        <div className="flex flex-col lg:flex-row-reverse mx-auto  max-w-6xl items-center pb-10">
+          <div dir="rtl" className=" text-white mx-auto pt-12 lg:w-1/2">
             <h2 className="mb-10 text-3xl font-bold">
               ورود به دنیای ارز دیجیتال
             </h2>
@@ -27,7 +27,7 @@ export function Hero() {
               </button>
             </div>
           </div>
-          <div className="flex flex-row ">
+          <div className="grid grid-cols-2 pt-10 gap-x-40 md:gap-x-80 lg:gap-x-5 lg:w-1/2">
             <div className="">
               <Image
                 className=""
@@ -37,7 +37,7 @@ export function Hero() {
                 height={60}
               />
             </div>
-            <div className="">
+            <div className="lg:pl-20">
               <Image
                 className=""
                 src="/assets/images/heroicons/hero__polygon.svg"
@@ -46,7 +46,7 @@ export function Hero() {
                 height={100}
               />
             </div>
-            <div className=" hidden">
+            <div className="hidden lg:grid">
               <Image
                 className=""
                 src="/assets/images/heroicons/hero__ethereum.svg"
@@ -56,7 +56,7 @@ export function Hero() {
               />
             </div>
 
-            <div className=" hidden">
+            <div className="hidden lg:grid ">
               <Image
                 className=""
                 src="/assets/images/heroicons/hero__raybit.svg"

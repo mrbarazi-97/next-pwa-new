@@ -20,7 +20,7 @@ export default function Home() {
         <SwiperSlider />
         <Coins />
         <RayExplainOne />
-        <Trust />
+        <Trust background={'bg-darkBlue'} />
         <RayExplainTwo />
         <AppLinks />
         <RaySocial />

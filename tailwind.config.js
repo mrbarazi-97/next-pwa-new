@@ -9,11 +9,13 @@ module.exports = {
       mainBlue: '#2484c6',
       lightBlue: '#3b9ee1',
       lightGray: '#ffffff80',
+      gray: '#676b72',
       white: '#ffffff',
       yellow: '#f3ba2f',
       bgBlue: '#7db5c8',
       bgTable: '#31286c',
       trueBlue: '#0d0156',
+      bgColor:'#eeeeee',
     },
     extend: {
       keyframes: {
